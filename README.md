@@ -9,9 +9,12 @@ The purpose of this analysis is to create a binary classifier that is capable of
 #### Deliverable 1: Data Preprocessing
 
 - What variable(s) are considered the target(s) for your model?
-        `IS_SUCCESSFUL` is the target for this model.
+
+`IS_SUCCESSFUL` is the target for this model.
+
 - What variable(s) are considered to be the features for your model?
-  The features for my model are all of the other variables in `application_df`: 
+
+The features for my model are all of the other variables in `application_df`: 
     `APPLICATION_TYPE`,
     `AFFILIATION`,
     `CLASSIFICATION`,
@@ -22,7 +25,8 @@ The purpose of this analysis is to create a binary classifier that is capable of
     `SPECIAL_CONSIDERATIONS`,
     `ASK_AMT`
 - What variables are neither targets nor features, and should be removed from the input data?
-  `EIN` and `NAME`
+
+`EIN` and `NAME`
 
   The `APPLICATION_TYPE` and `CLASSIFICATION` variables have more than 10 unique values. Therefore, I binned "rare" categorical values together in a new `Other` column. Then I used Scikit-learn's `OneHotEncoder` to encode categorical variables before splitting the preprocessed data into features and target arrays, and then into training and testing datasets. The last task of preprocessing was standardizing numerical variables using Scikit-Learn’s `StandardScaler` class to scale the data.
 
@@ -105,7 +109,7 @@ Even with these modifications, Model D did not achieve 75% accuracy.
 
 ## Summary
 
-These models were not able to achieve 75% accuracy. After these three attempts, the improvements in accuracy were minor and the performance time was not ideal. Each model ran for a few minutes. One can remove more "noisy" data, modify the activation functions further, and increase the number of hidden layers and nodes. These results indicate that these neural networks may not be the best model to solve this classification problem.  
+These models were not able to achieve 75% accuracy. One can also remove more "noisy" data, modify the activation functions further, and increase the number of hidden layers and nodes. After these three attempts, the improvements in accuracy were minor and the performance time was not ideal. Each model took several minutes to run. These results indicate that these neural networks may not be the best model to solve this classification problem.  
 
 More analysis could be done with a random forest model. The random forest classifier uses averaging to improve the predictive accuracy and control over-fitting [^1]. This dataset is tabluar, so random forest may be a better, faster, and more accurate model to use.  
 
